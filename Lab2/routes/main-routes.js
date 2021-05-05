@@ -18,6 +18,10 @@ router.get('/read-notes', (req,res,next) => {
     res.render('read-notes', { notes: notes })
 })
 
+router.get('/leave-note', (req,res,next) => {
+    res.render('leave-note')
+})
+
 router.post('/add-note', (req,res,next) => {
     notes.push({
         id: Math.random(),
@@ -28,5 +32,9 @@ router.post('/add-note', (req,res,next) => {
         res.status(302).redirect('/')
     })
 })
+
+router.get('*', function(req, res){
+    res.send('404 PAGE', 404);
+});
 
 module.exports = router
