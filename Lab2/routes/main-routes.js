@@ -34,7 +34,7 @@ router.post('/add-note', (req,res,next) => {
 })
 
 router.get('*', function(req, res){
-    res.send('404 PAGE', 404);
+    res.status(404).render('404')
 });
 
 module.exports = router
